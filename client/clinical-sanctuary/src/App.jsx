@@ -1,15 +1,19 @@
-import './App.css'
-import Sidebar from './components/layouts/Sidebar'
+import "./App.css";
+import Sidebar from "./components/layout/Sidebar";
+import Topbar from "./components/layout/Topbar";
+import Dashboard from "./pages/Dashboard";
 
 function App() {
   return (
-    <div className="min-h-screen flex bg-gray-100">
+    <div className="flex min-h-screen bg-slate-100">
       <Sidebar />
-      <h1 className="text-5xl font-bold text-blue-100">
-        Clinical Sanctuary
-      </h1>
+
+      <div className="flex-1 flex flex-col">
+        <Topbar />  
+        <Dashboard />
+      </div>
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
