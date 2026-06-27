@@ -1,5 +1,5 @@
 import DashboardHeader from "../components/dashboard/DashboardHeader";
-import StatsCards from "../components/dashboard/StatsCards";
+import DashboardStats from "../components/dashboard/DashboardStats";
 import PatientQueue from "../components/dashboard/PatientQueue";
 import QuickActions from "../components/dashboard/QuickActions";
 import SyncLog from "../components/dashboard/SyncLog";
@@ -13,24 +13,22 @@ export default function Dashboard() {
 
         <DashboardHeader />
 
-        <StatsCards />
+        <DashboardStats />
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
+        {/* Patient Queue (Full Width) */}
+        <PatientQueue />
 
-          <div className="lg:col-span-8">
-            <PatientQueue />
-          </div>
-
-          <div className="lg:col-span-4 space-y-6">
-            <QuickActions />
-            <SyncLog />
-          </div>
-
+        {/* Bottom Section */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          <QuickActions />
+          <SyncLog />
         </div>
 
-        <ClinicOverview />
-
-        <NotificationList />
+        {/* Bottom Section 2 */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          <ClinicOverview />
+          <NotificationList />
+        </div>
 
       </div>
     </main>

@@ -6,33 +6,22 @@ import {
   ClipboardPlus,
 } from "lucide-react";
 
-const navItemStyles = `
-flex items-center
-justify-center lg:justify-start
-gap-3
+import { NavLink } from "react-router-dom";
 
-px-3 lg:px-4
-py-3
-
+const baseStyles = `
+flex items-center gap-3
+px-4 py-3
 rounded-xl
 relative
-
-text-black
-bg-transparent
-
 transition-all
 duration-300
 ease-[cubic-bezier(0.4,0,0.2,1)]
-
-hover:text-[#2563EB]
-hover:bg-white
-hover:shadow-sm
 
 before:content-['']
 before:absolute
 before:left-0
 before:w-1
-before:h-5 lg:before:h-6
+before:h-6
 before:bg-[#2563EB]
 before:rounded-r-full
 
@@ -42,9 +31,28 @@ before:-translate-x-2
 before:transition-all
 before:duration-300
 before:ease-[cubic-bezier(0.4,0,0.2,1)]
+`;
+
+const inactiveStyles = `
+text-black
+bg-transparent
+
+hover:text-[#2563EB]
+hover:bg-white
+hover:shadow-sm
 
 hover:before:opacity-100
 hover:before:translate-x-0
+`;
+
+const activeStyles = `
+text-[#2563EB]
+bg-white
+shadow-sm
+font-semibold
+
+before:opacity-100
+before:translate-x-0
 `;
 
 const navItems = [
@@ -78,10 +86,8 @@ const navItems = [
 export default function Sidebar() {
   return (
     <aside className="w-20 lg:w-64 h-screen bg-[#F2F4F6] text-black flex flex-col px-3 lg:px-5 py-6 transition-all duration-300">
-
       {/* Logo */}
       <div className="mt-8 mb-2 flex flex-col items-center">
-
         {/* Temporary Logo */}
         <div className="w-12 h-12 rounded-xl bg-[#2563EB] text-white flex items-center justify-center font-bold text-xl shadow-sm">
           S
@@ -97,31 +103,28 @@ export default function Sidebar() {
             Central Clinic
           </p>
         </div>
-
       </div>
 
       {/* Navigation */}
       <nav className="flex flex-col gap-2 mt-4 lg:mt-6 font-[Inter]">
-
         {navItems.map((item) => {
-          const Icon = item.icon;
-
           return (
-            <button
+            <NavLink
               key={item.name}
-              className={navItemStyles}
+              to={item.path}
+              className={({ isActive }) =>
+                `
+      ${baseStyles}
+      ${isActive ? activeStyles : inactiveStyles}
+    `
+              }
             >
-              <Icon className="w-5 h-5 flex-shrink-0" />
-
-              <span className="hidden lg:inline">
-                {item.name}
-              </span>
-            </button>
+              <item.icon className="w-[18px] h-[18px]" />
+              {item.name}
+            </NavLink>
           );
         })}
-
       </nav>
-
     </aside>
   );
 }

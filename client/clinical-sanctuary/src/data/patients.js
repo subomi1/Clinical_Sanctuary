@@ -1,0 +1,43 @@
+const patients = [
+  {
+    id: 1,
+    hospitalId: "CS-24001",
+    name: "Marcus Thorne",
+    age: 38,
+    gender: "Male",
+    phone: "+234 801 234 5678",
+    doctor: "Dr. Sarah Johnson",
+    lastVisit: "24 Jun 2026",
+    nextAppointment: "28 Jun 2026",
+    status: "Waiting",
+    avatar: "https://i.pravatar.cc/150?img=11",
+  },
+  {
+    id: 2,
+    hospitalId: "CS-24002",
+    name: "Grace Okafor",
+    age: 29,
+    gender: "Female",
+    phone: "+234 803 456 8910",
+    doctor: "Dr. Michael Adams",
+    lastVisit: "22 Jun 2026",
+    nextAppointment: "30 Jun 2026",
+    status: "Active",
+    avatar: "https://i.pravatar.cc/150?img=32",
+  },
+  {
+    id: 3,
+    hospitalId: "CS-24003",
+    name: "Samuel Bello",
+    age: 44,
+    gender: "Male",
+    phone: "+234 806 778 9921",
+    doctor: "Dr. Sarah Johnson",
+    lastVisit: "20 Jun 2026",
+    nextAppointment: "5 Jul 2026",
+    status: "Critical",
+    avatar: "https://i.pravatar.cc/150?img=53",
+  },
+];
+
+export default patients;
